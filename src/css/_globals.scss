@@ -1,0 +1,170 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: $color-bcg;
+    color: $color-font;
+    font-size: $font-d;
+}
+
+a, a:active, a:visited {
+    text-decoration: none;
+    color: $color-font;
+}
+
+a.btn--cta {
+    color: $color-bcg;
+}
+a.btn--outline {
+    color: $color-accent;
+    &:hover {
+        color: $color-bcg;
+    }
+}
+
+h1 {
+    font-size: $font-m-h1;
+    font-weight: 600;
+    @include breakpoint-up(xlarge) {
+        font-size: $font-d-h1;
+    }
+    
+}
+
+h2 {
+    font-size: $font-m-h2;
+    @include breakpoint-up(xlarge) {
+        font-size: $font-d-h2;
+    }
+}
+h3 {
+    font-size: $font-m-h3;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    @include breakpoint-up(medium) {
+        font-size: $font-d-h3;
+    }
+    
+    @include breakpoint-up(medium) {
+        margin-bottom: 2rem;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+//--- UI ELEMENTS ---
+// input fields 
+.input {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    padding: 10px 6px;
+    font-family: inherit;
+    border: none;
+    background: #FEFEFF;
+    box-shadow: -1px 1px 4px 0.5px rgba(79, 139, 127, 0.22);    
+}
+
+// buttons
+.btn-container {
+    width: 200px;
+}
+
+.btn {
+    border-radius: 4px;
+    padding: 0.875rem 1.25rem;
+    text-align: center;
+    border: solid 2px $color-accent;
+    &--cta {
+        background-color: $color-accent;
+        &:hover {
+            background-color: $color-secondary;
+        }
+    }
+    &--outline {
+        background-color: $color-bcg; 
+        &:hover {
+            background-color: $color-accent;
+        }
+    }
+    &--save {
+        &::after {
+            content: url("../Images/check.svg");
+            margin-left: 0.5rem;
+        }
+    }
+    
+}
+
+
+//SPACING
+.container {
+    margin: 0 auto;
+    &--pall {
+        padding: 1.875rem;
+        @include breakpoint-up (medium) {
+            padding-right: 3rem;
+            padding-left: 3rem;
+        }
+        @include breakpoint-up (large) {
+            padding-right: 4rem;
+            padding-left: 4rem;
+        }
+    }
+    &--pt {
+        padding-top: 1.875rem;
+    }
+    &--pb {
+        padding-bottom: 1.875rem;
+    }
+    &--pl {
+        padding-left: 1.875rem;
+        @include breakpoint-up (medium) {
+            padding-left: 3rem;
+        }
+    }
+    &--pr {
+        padding-right: 1.875rem;
+        @include breakpoint-up (medium) {
+            padding-right: 3rem;
+        }
+    }
+    &--prl {
+        padding-right: 1.875rem;
+        padding-left: 1.875rem;
+        @include breakpoint-up (medium) {
+            padding-right: 3rem;
+            padding-left: 3rem;
+        }
+        @include breakpoint-up (large) {
+            padding-right: 4rem;
+            padding-left: 4rem;
+        }
+    }
+    
+}
+
+
+// HIDE CLASSES
+.hide-for-mobile {
+    // hide for mobile
+    @include breakpoint-down(small) {
+        display: none;
+    }
+}
+
+.hide-for-desktop {
+    // hide for tablet and desktop 
+    @include breakpoint-up(medium) {
+        display: none;
+    }
+}

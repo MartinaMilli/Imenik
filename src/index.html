@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Imenik</title>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="overlay has-fade hide-for-desktop">
+        </div>
+        <nav class="navbar flex">
+            <a href="#"><img src="./Images/logo.svg" alt="Imenik logo"></a>
+            <div class="navbar__links hide-for-mobile">
+                <a href="#" class="link">Moji kontakti</a>
+                <a href="#" class="btn btn--cta">Novi kontakt</a>
+            </div>
+            <a href="#" class="navbar__menu hide-for-desktop">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+        <div class="header__menu has-fade container-mobile hide-for-desktop">
+            <a href="#">Novi kontakt</a>
+            <a href="#">Moji kontakti</a>
+        </div>
+    </header>
+
+    
+    <section class="hero" >
+        <div class="hero__text container--pall flex">
+            <h1>Imenik</h1>
+            <h2>Svi vaši kontakti na jednom mjestu!</h2>
+            <a href="#" class="btn btn--cta">Novi kontakt</a>
+        </div>
+        <!-- <div class="hero__image container--pall">
+            <img src="../src/Images/homepage-img.svg" alt="Hero image">
+        </div> -->     
+    </section>
+    
+
+    <section class="new-contact container--pall" style="display: none;"> <!-- zaduzen za poziciju cijelog forma lijevo i slike desno -->
+        <form class="new-contact__form flex"> <!-- zaduzen za poziciju naslova, forma i buttonsa -->
+            <h3>Novi kontakt</h3>
+            <ul class="flex"> <!-- zaduzen za poziciju pojedinog elementa forma  -->
+                <li class="form-element flex"> <!-- zaduzen za raspodijelu inputa unutar form elementa (label + input)  -->
+                    <div class="input-container flex"> <!-- zaduzen za postavljanje labela iznad inputa -->
+                        <label for="first-name">Ime</label>
+                        <input type="text" name="first-name" id="first-name" class="input input--first-name" size="21"  maxlength="30" required>
+                    </div>
+                    <div class="input-container flex">
+                        <label for="last-name">Prezime</label>
+                        <input type="text" name="last-name" id="last-name" class="input input--last-name" size="21"  maxlength="30" required>
+                    </div>
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="e-mail">E-mail</label>
+                        <input type="text" name="e-mail" id="e-mail" class="input input--email" size="21"  maxlength="30" required>
+                    </div>
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="phone">Telefon</label>
+                        <div class="input-container--phone flex"> <!-- zaduzen za postavljanje inputa jedan do drugog  -->
+                            <select name="phone" id="phone" class="input input--phone-prefix">
+                                <option value="091">091</option>
+                                <option value="092">092</option>
+                                <option value="095">095</option>
+                                <option value="097">097</option>
+                                <option value="098">098</option>
+                                <option value="099">099</option>
+                            </select>
+                            <input type="text" name="phone-num" id="phone-num" class="input input--phone-num" size="21"  maxlength="7" required>
+                        </div>
+                    </div>                  
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="address">Adresa</label>
+                        <div class="input-container--address flex">
+                            <input type="text" name="address" id="address" placeholder="Ulica i kućni broj" class="input input--street" size="21"  maxlength="30" required>
+                            <input type="text" name="city" id="city" placeholder="Grad"  class="input input--city" size="21"  maxlength="30" required>
+                            <input type="text" name="zip-code" id="zip-code" placeholder="Poštanski broj" class="input input--zip-code" size="21"  maxlength="30" required> 
+                        </div>
+                    </div>
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="birth-date">Datum rođenja</label>
+                        <input type="date" name="birth-date" id="birth-date" class="input input--birth-date"required>
+                    </div>
+                </li>
+            </ul>
+            <div class="form-btns flex">
+                <a href="#" class="btn btn--cta btn--save">Spremi kontakt</a>
+                <a href="#" class="btn btn--outline">< Naslovna</a>
+            </div>
+        </form>
+    </section>
+
+    <section class="edit-contact container--pall" style="display: none;"> <!-- zaduzen za poziciju cijelog forma lijevo i slike desno -->
+        <form class="edit-contact__form flex"> <!-- zaduzen za poziciju naslova, forma i buttonsa -->
+            <h3>Uredi kontakt</h3>
+            <ul class="flex"> <!-- zaduzen za poziciju pojedinog elementa forma  -->
+                <li class="form-element flex"> <!-- zaduzen za raspodijelu inputa unutar form elementa (label + input)  -->
+                    <div class="input-container flex"> <!-- zaduzen za postavljanje labela iznad inputa -->
+                        <label for="first-name">Ime</label>
+                        <input type="text" name="first-name" id="first-name" class="input input--first-name" value="Martina" size="21"  maxlength="30" required>
+                    </div>
+                    <div class="input-container flex">
+                        <label for="last-name">Prezime</label>
+                        <input type="text" name="last-name" id="last-name" class="input input--last-name" value="Milli" size="21"  maxlength="30" required>
+                    </div>
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="e-mail">E-mail</label>
+                        <input type="text" name="e-mail" id="e-mail" class="input input--email" size="21"  maxlength="30" value="millimartina8@gmail.com" required>
+                    </div>
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="phone">Telefon</label>
+                        <div class="input-container--phone flex"> <!-- zaduzen za postavljanje inputa jedan do drugog  -->
+                            <select name="phone" id="phone" class="input input--phone-prefix">
+                                <option value="091">091</option>
+                                <option value="092">092</option>
+                                <option value="095">095</option>
+                                <option value="097">097</option>
+                                <option value="098">098</option>
+                                <option value="099" selected>099</option>
+                            </select>
+                            <input type="text" name="phone-num" id="phone-num" class="input input--phone-num" value="4647097" size="21"  maxlength="7" required>
+                        </div>
+                    </div>                  
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="address">Adresa</label>
+                        <div class="input-container--address flex">
+                            <input type="text" name="address" id="address" placeholder="Ulica i kućni broj" class="input input--street" value="Jezerska ulica 32D" size="21"  maxlength="30" required>
+                            <input type="text" name="city" id="city" placeholder="Grad"  class="input input--city" value="Zagreb" size="21"  maxlength="30" required>
+                            <input type="text" name="zip-code" id="zip-code" placeholder="Poštanski broj" class="input input--zip-code" value="10000" size="21"  maxlength="30" required> 
+                        </div>
+                    </div>
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="birth-date">Datum rođenja</label>
+                        <input type="date" name="birth-date" id="birth-date" class="input input--birth-date" value="1997-02-08" required>
+                    </div>
+                </li>
+            </ul>
+            <div class="form-btns flex">
+                <a href="#" class="btn btn--cta btn--save">Spremi promjene</a>
+                <a href="#" class="btn btn--outline">< Moji kontakti</a>
+            </div>
+        </form>
+    </section>
+
+    <section class="my-contacts container--pall" style="display: none;" >
+        <h3>Moji kontakti</h3>
+        <div class="my-contacts__pagination flex">
+            <a href="#">< Stranica 1</a>
+            <a href="#"> Stranica 3 ></a>
+        </div>     
+        <ul class="my-contacts__list">
+            <li class="list-element flex">
+                <div class="name-col">Martina Milli</div>
+                <div class="email-col hide-for-mobile">millimartina8@gmail.com</div>
+                <div class="details-col"><a href="#">Više...</a></div>
+                <div class="icons-col flex">
+                    <a href="#"><img src="../src/Images/icon-edit.svg" alt="Edit contact"></a>
+                    <a href="#"><img src="../src/Images/icon-delete.svg" alt="Delete contact"></a>
+                </div>
+            </li>
+            <li class="list-element flex">
+                <div class="name-col">Martina Milli</div>
+                <div class="email-col hide-for-mobile">millimartina8@gmail.com</div>
+                <div class="details-col"><a href="#">Više...</a></div>
+                <div class="icons-col flex">
+                    <a href="#"><img src="../src/Images/icon-edit.svg" alt="Edit contact"></a>
+                    <a href="#"><img src="../src/Images/icon-delete.svg" alt="Delete contact"></a>
+                </div>
+            </li>
+            <li class="list-element flex">
+                <div class="name-col">Martina Milli</div>
+                <div class="email-col hide-for-mobile">millimartina8@gmail.com</div>
+                <div class="details-col"><a href="#">Više...</a></div>
+                <div class="icons-col flex">
+                    <a href="#"><img src="../src/Images/icon-edit.svg" alt="Edit contact"></a>
+                    <a href="#"><img src="../src/Images/icon-delete.svg" alt="Delete contact"></a>
+                </div>
+            </li>
+            <li class="list-element flex">
+                <div class="name-col">Martina Milli</div>
+                <div class="email-col hide-for-mobile">millimartina8@gmail.com</div>
+                <div class="details-col"><a href="#">Više...</a></div>
+                <div class="icons-col flex">
+                    <a href="#"><img src="../src/Images/icon-edit.svg" alt="Edit contact"></a>
+                    <a href="#"><img src="../src/Images/icon-delete.svg" alt="Delete contact"></a>
+                </div>
+            </li>
+            <li class="list-element flex">
+                <div class="name-col">Martina Milli</div>
+                <div class="email-col hide-for-mobile">millimartina8@gmail.com</div>
+                <div class="details-col"><a href="#">Više...</a></div>
+                <div class="icons-col flex">
+                    <a href="#"><img src="../src/Images/icon-edit.svg" alt="Edit contact"></a>
+                    <a href="#"><img src="../src/Images/icon-delete.svg" alt="Delete contact"></a>
+                </div>
+            </li>
+            <li class="list-element flex">
+                <div class="name-col">Martina Milli</div>
+                <div class="email-col hide-for-mobile">millimartina8@gmail.com</div>
+                <div class="details-col"><a href="#">Više...</a></div>
+                <div class="icons-col flex">
+                    <a href="#"><img src="../src/Images/icon-edit.svg" alt="Edit contact"></a>
+                    <a href="#"><img src="../src/Images/icon-delete.svg" alt="Delete contact"></a>
+                </div>
+            </li>
+            <li class="list-element flex">
+                <div class="name-col">Martina Milli</div>
+                <div class="email-col hide-for-mobile">millimartina8@gmail.com</div>
+                <div class="details-col"><a href="#">Više...</a></div>
+                <div class="icons-col flex">
+                    <a href="#"><img src="../src/Images/icon-edit.svg" alt="Edit contact"></a>
+                    <a href="#"><img src="../src/Images/icon-delete.svg" alt="Delete contact"></a>
+                </div>
+            </li>
+        </ul>
+        <div class="table-btns flex">
+            <a href="#" class="btn btn--outline">< Naslovna</a>
+        </div>
+    </section>
+
+    <section class="contact-details container--pall"  style="display: none;"> <!-- zaduzen za poziciju cijelog forma lijevo i slike desno -->
+        <form class="contact-details__form flex"> <!-- zaduzen za poziciju naslova, forma i buttonsa -->
+            <div class="edit-title flex">
+                <h3>Detalji o kontaktu</h3>
+                <a href="#"><img src="../src/Images/icon-edit-black.svg" alt="Uredi kontakt"></a>
+            </div>
+            <ul class="flex"> <!-- zaduzen za poziciju pojedinog elementa forma  -->
+                <li class="form-element flex"> <!-- zaduzen za raspodijelu inputa unutar form elementa (label + input)  -->
+                    <div class="input-container flex"> <!-- zaduzen za postavljanje labela iznad inputa -->
+                        <label for="first-name">Ime</label>
+                        <input type="text" name="first-name" id="first-name" class="input input--first-name" value="Martina" size="21"  maxlength="30" required>
+                    </div>
+                    <div class="input-container flex">
+                        <label for="last-name">Prezime</label>
+                        <input type="text" name="last-name" id="last-name" class="input input--last-name" value="Milli" size="21"  maxlength="30" required>
+                    </div>
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="e-mail">E-mail</label>
+                        <input type="text" name="e-mail" id="e-mail" class="input input--email" size="21"  maxlength="30" value="millimartina8@gmail.com" required>
+                    </div>
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="phone">Telefon</label>
+                        <div class="input-container--phone flex"> <!-- zaduzen za postavljanje inputa jedan do drugog  -->
+                            <select name="phone" id="phone" class="input input--phone-prefix">
+                                <option value="091">091</option>
+                                <option value="092">092</option>
+                                <option value="095">095</option>
+                                <option value="097">097</option>
+                                <option value="098">098</option>
+                                <option value="099" selected>099</option>
+                            </select>
+                            <input type="text" name="phone-num" id="phone-num" class="input input--phone-num" value="4647097" size="21"  maxlength="7" required>
+                        </div>
+                    </div>                  
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="address">Adresa</label>
+                        <div class="input-container--address flex">
+                            <input type="text" name="address" id="address" placeholder="Ulica i kućni broj" class="input input--street" value="Jezerska ulica 32D" size="21"  maxlength="30" required>
+                            <input type="text" name="city" id="city" placeholder="Grad"  class="input input--city" value="Zagreb" size="21"  maxlength="30" required>
+                            <input type="text" name="zip-code" id="zip-code" placeholder="Poštanski broj" class="input input--zip-code" value="10000" size="21"  maxlength="30" required> 
+                        </div>
+                    </div>
+                </li>
+                <li class="form-element flex">
+                    <div class="input-container flex">
+                        <label for="birth-date">Datum rođenja</label>
+                        <input type="date" name="birth-date" id="birth-date" class="input input--birth-date" value="1997-02-08" required>
+                    </div>
+                </li>
+            </ul>
+            <div class="form-btns flex">
+                <a href="#" class="btn btn--outline">< Moji kontakti</a>
+            </div>
+        </form>
+    </section>
+    <script src="./js/index.js"></script>
+</body>
+</html>
