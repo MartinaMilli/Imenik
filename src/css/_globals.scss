@@ -88,6 +88,7 @@ h3 {
         background-color: $color-accent;
         &:hover {
             background-color: $color-secondary;
+            border: solid 2px $color-secondary;
         }
     }
     &--outline {

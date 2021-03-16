@@ -231,6 +231,7 @@ h3 {
 
 .btn--cta:hover {
   background-color: #0d6654;
+  border: solid 2px #0d6654;
 }
 
 .btn--outline {

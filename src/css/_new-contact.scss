@@ -1,7 +1,6 @@
 .new-contact {
     @include breakpoint-up(medium) {
         background-image: url("../Images/hero_image.svg");
-     
         background-position-y: 80%;
         background-position-x: 130%;
         background-size: 60% ;
