@@ -104,6 +104,12 @@ h3 {
     }
     &--outline {
         background-color: $color-bcg; 
+        &::before {
+            content: '< ';
+            display: inline;
+            width: 1rem;
+            height: 1rem;
+        }
         &:hover {
             background-color: $color-accent;
         }

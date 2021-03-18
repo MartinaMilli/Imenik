@@ -1,4 +1,4 @@
-import {elements} from './base';
+import {elements, maxDate} from './base';
 
 
 const renderEdit = contact => {

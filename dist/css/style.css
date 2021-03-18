@@ -250,6 +250,13 @@ h3 {
   background-color: #fefeff;
 }
 
+.btn--outline::before {
+  content: '< ';
+  display: inline;
+  width: 1rem;
+  height: 1rem;
+}
+
 .btn--outline:hover {
   background-color: #004e40;
 }
