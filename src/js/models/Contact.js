@@ -6,8 +6,13 @@ export default class Contact {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.phoneNumber = phonePrefix + phoneNum;
-        this.address = `${street}, ${zipCode}, ${city}`
+        this.phonePrefix = phonePrefix;
+        this.phoneNum = phoneNum;
+        this.phoneNumber = this.phonePrefix + this.phoneNum;
+        this.street = street;
+        this.city = city;
+        this.zip = zipCode;
+        this.address = `${this.street}, ${this.zipCode}, ${this.city}`
         this.birthDate = birthDate;
         this.id = uniqid();
     }

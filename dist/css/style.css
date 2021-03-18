@@ -913,6 +913,17 @@ h3 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.my-contacts__list .list-element .name-col {
+  width: 10rem;
+}
+
+.my-contacts__list .list-element .email-col {
+  width: 15rem;
 }
 
 .my-contacts__list .list-element .icons-col {

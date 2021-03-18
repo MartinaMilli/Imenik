@@ -69,6 +69,13 @@
         .list-element {
             padding: 1rem;
             justify-content: space-between;
+            align-items: center;
+            .name-col {
+                width: 10rem;
+            }
+            .email-col {
+                width: 15rem;
+            }
             .icons-col {
                 justify-content: flex-end;
                 width: 3.5rem;

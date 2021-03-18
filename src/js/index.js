@@ -2,6 +2,8 @@ import { elements, toggleHamburger, clearUI } from "./views/base";
 import * as newContactView from "./views/newContactView";
 import * as myContactsView from "./views/myContactsView";
 import * as homepageView from "./views/homepageView";
+import * as detailsView from "./views/detailsView";
+import * as editView from "./views/editView";
 import Contact from "./models/Contact";
 import MyContacts from "./models/MyContacts";
 
@@ -38,6 +40,51 @@ window.addEventListener('click', e => {
         homepageView.displayHomepage();
     }
 })
+
+const getID = btn => {
+    return btn.closest('.list-element').getAttribute('data-itemid');
+}
+
+
+// Switching to the details page 
+elements.myContactsTable.addEventListener('click', e => {
+    const detailsBtn = e.target.closest('.details-link');
+    if (detailsBtn) {
+        const contactID = getID(detailsBtn)
+        console.log(contactID);
+        clearUI()
+        detailsView.displayDetailsPage(state.contactList.myContactList, contactID)
+    }
+});
+
+// Switching to the edit contact page from my contacts table
+elements.myContactsTable.addEventListener('click', e => {
+    const editIcon = e.target.closest('.edit-icon');
+    if (editIcon) {
+        const contactID = getID(editIcon);
+        console.log(contactID);
+        clearUI()
+        editView.displayEditPage(state.contactList.myContactList, contactID)
+    }
+});
+
+// Switching to the edit contact page from the details page
+window.addEventListener('click', e => {
+    if (e.target.closest('.edit-icon')) {
+        // 1. get the id of the currently displayed contact
+        const contactID = elements.detailsForm.firstElementChild.getAttribute('data-itemid');
+        console.log(contactID);
+        
+        // 2. display the edit page for that contact
+        clearUI()
+        editView.displayEditPage(state.contactList.myContactList, contactID)
+    }
+    
+});
+
+
+
+
 
 // Toggle the hamburger menu
 elements.header.addEventListener('click', e => {
@@ -95,6 +142,55 @@ elements.newContactForm.addEventListener('submit', e => {
 })
 
 
+// EDIT CONTACT CONTROLLER
+
+const controlEditContact = () => {
+    // 1. get new input data (editView)
+    const inputData = editView.getInput()
+
+    // 2. update contact in the contact list (and local storage) (MyContacts)
+
+    state.contactList.updateContact(inputData, inputData.id);
+
+    // 3. display details page (detailsView)
+    clearUI()
+    detailsView.displayDetailsPage(state.contactList.myContactList, inputData.id)
+}
+
+
+window.addEventListener('click', e => {
+    if (e.target.matches('.js__save-changes-btn')) {
+        controlEditContact()
+    }
+})
+
+
+// DELETE CONTACT CONTROLLER
+
+const controlDeleteContact = contactID => {
+    // 1. delete contact from the contact list (MyContacts)
+    state.contactList.deleteContact(contactID)
+    console.log(state.contactList.myContactList)
+
+    // 2. delete contact from the table (myContactView)
+    elements.pagination.innerHTML = '';
+    myContactsView.displayMyContactsPage();
+    myContactsView.renderTable(state.contactList.myContactList);
+}
+
+elements.myContactsTable.addEventListener('click', e => {
+    const deleteIcon = e.target.closest('.delete-icon');
+    if (deleteIcon) {
+        const contactID = getID(deleteIcon);
+        console.log(contactID);
+        controlDeleteContact(contactID);
+    }
+});
+
+
+
+
+
 
 
 
@@ -103,7 +199,7 @@ window.addEventListener('load', () => {
    
     state.contactList = new MyContacts();
     
-    // Restore likes
+    // Restore contacts
     state.contactList.readStorage();
 
 });

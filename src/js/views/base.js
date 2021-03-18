@@ -2,9 +2,13 @@ export const elements = {
     header: document.querySelector('.header'),
     hamburgerMenu: document.querySelector(".navbar__menu"),
     newContactForm: document.querySelector(".new-contact__form"),
+    detailsForm: document.querySelector('.contact-details__form ul'),
+    editForm: document.querySelector('.edit-contact__form ul'),
+    
     myContactsTable: document.querySelector(".my-contacts__list"),
+    myContactsTableElements: document.querySelectorAll(".my-contacts__list li"),
 
-    // input fields
+    // new contact input fields
     inputFields: document.querySelectorAll(".new-contact .input"),
     firstNameInput: document.querySelector(".new-contact .input--first-name"),
     lastNameInput: document.querySelector(".new-contact .input--last-name"),
@@ -14,17 +18,21 @@ export const elements = {
     streetInput: document.querySelector(".new-contact .input--street"),
     cityInput: document.querySelector(".new-contact .input--city"),
     zipInput: document.querySelector(".new-contact .input--zip-code"),
-    dateInput: document.querySelector(".new-contact .input--birth-date"),
+    dateInput: document.querySelector(".new-contact .input--birth-date"),   
 
     // links and btns
     newContactLinks: document.querySelectorAll('.js__new-contact-link'),
-    saveBtn: document.querySelector('.js__save-btn'),
+    saveBtn: document.querySelector('.js__save-contact-btn'),
+    editBtn: document.querySelector('.js__save-changes-btn'),
     pagination: document.querySelector('.my-contacts__pagination'),
+    
     //pages
     pages: document.querySelectorAll('.js__page'),
     homePage: document.querySelector('.js__page--home'),
     newContactPage: document.querySelector('.js__page--new-contact'),
     myContactsPage: document.querySelector('.js__page--my-contacts'),
+    detailsPage: document.querySelector('.js__page--contact-details'),
+    editPage: document.querySelector('.js__page--edit-contact'),
 
     getInputFields: (selector) => {
         return document.querySelectorAll(selector + ' .input');
@@ -64,5 +72,21 @@ export const clearUI = () => {
             toggleHamburger();
         }
     });
+}
+
+export const maxDate = () => {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        } 
+        if(mm<10){
+            mm='0'+mm
+        } 
+
+    today = yyyy+'-'+mm+'-'+dd;
+    document.querySelector("[type='date']").setAttribute("max", today);
 }
 

@@ -1,4 +1,4 @@
-import {elements} from './base';
+import {elements, maxDate} from './base';
 
 
 
@@ -7,6 +7,7 @@ export const displayNewContactPage = () => {
     if (elements.newContactPage.classList.contains('hidden')) {
         elements.newContactPage.classList.remove('hidden');
     }
+    maxDate();
 }
 
 export const clearInputFields = () => {
