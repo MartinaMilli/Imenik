@@ -70,9 +70,9 @@ elements.myContactsTable.addEventListener('click', e => {
 
 // Switching to the edit contact page from the details page
 window.addEventListener('click', e => {
-    if (e.target.closest('.edit-icon')) {
+    if (e.target.closest('.edit-icon-details')) {
         // 1. get the id of the currently displayed contact
-        const contactID = elements.detailsForm.firstElementChild.getAttribute('data-itemid');
+        const contactID = elements.detailsForm.querySelector('li').getAttribute('data-itemid');
         console.log(contactID);
         
         // 2. display the edit page for that contact

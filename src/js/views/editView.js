@@ -67,12 +67,13 @@ const displayEdit = () => {
 export const displayEditPage = (contactList, contactID) => {
      // 1. get the contact data via the given id 
      let curContact = {};
-     contactList.forEach(contact => { 
-         if(contact.id === contactID) {
-             curContact = contact;
-         }
-     });
-     console.log(curContact)
+    contactList.forEach(contact => { 
+        if(contact.id === contactID) {
+            curContact = contact;
+        }
+    });
+    console.log(curContact)
+   
  
      // 2. render the edit page for that contact 
      renderEdit(curContact);
