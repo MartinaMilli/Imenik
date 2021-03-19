@@ -53,6 +53,8 @@ elements.myContactsTable.addEventListener('click', e => {
         const contactID = getID(detailsBtn)
         console.log(contactID);
         clearUI()
+
+        // display details page
         detailsView.displayDetailsPage(state.contactList.myContactList, contactID)
     }
 });
@@ -72,7 +74,7 @@ elements.myContactsTable.addEventListener('click', e => {
 window.addEventListener('click', e => {
     if (e.target.closest('.edit-icon-details')) {
         // 1. get the id of the currently displayed contact
-        const contactID = elements.detailsForm.querySelector('li').getAttribute('data-itemid');
+        const contactID = document.querySelector(".contact-details__form li").getAttribute('data-itemid');
         console.log(contactID);
         
         // 2. display the edit page for that contact
@@ -149,11 +151,12 @@ const controlEditContact = () => {
     const inputData = editView.getInput()
 
     // 2. update contact in the contact list (and local storage) (MyContacts)
-
-    state.contactList.updateContact(inputData, inputData.id);
+    console.log(inputData);
+    state.contactList.updateContact(inputData);
 
     // 3. display details page (detailsView)
     clearUI()
+    document.querySelector('.contact-details__form ul').innerHTML = "";
     detailsView.displayDetailsPage(state.contactList.myContactList, inputData.id)
 }
 

@@ -10,9 +10,9 @@ export default class MyContacts {
         this.persistData();
     }
 
-    updateContact(newData, contactID) {
+    updateContact(newData) {
         this.myContactList.forEach(contact => {
-            if(contact.id === contactID) {
+            if(contact.id === newData.id) {
                 contact.firstName = newData.firstName;
                 contact.lastName = newData.lastName;
                 contact.email = newData.email;

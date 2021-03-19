@@ -1,14 +1,8 @@
-import {elements, maxDate} from './base';
+import {elements, maxDate, form} from './base';
 
 
 
-// display the New contact page
-export const displayNewContactPage = () => {
-    if (elements.newContactPage.classList.contains('hidden')) {
-        elements.newContactPage.classList.remove('hidden');
-    }
-    maxDate();
-}
+
 
 export const clearInputFields = () => {
     elements.getInputFields('.new-contact').forEach(field => {
@@ -19,16 +13,26 @@ export const clearInputFields = () => {
 })
 };
 
+// display the New contact page
+export const displayNewContactPage = () => {
+
+    if (elements.newContactPage.classList.contains('hidden')) {
+        elements.newContactPage.classList.remove('hidden');
+    }
+    document.querySelector('.new-contact__form h3').insertAdjacentHTML('afterend', form);
+    maxDate();
+}
+
 export const getInput = () => {
         return {
-            firstName: elements.firstNameInput.value,
-            lastName: elements.lastNameInput.value,
-            email: elements.emailInput.value,
-            phonePrefix: elements.phonePrefixInput.value,
-            phoneNum: elements.phoneNumInput.value,
-            street: elements.streetInput.value,
-            city: elements.cityInput.value,
-            zipCode: elements.zipInput.value,
-            birthDate: elements.dateInput.value,
+            firstName: document.querySelector(".new-contact .input--first-name").value,
+            lastName: document.querySelector(".new-contact .input--last-name").value,
+            email: document.querySelector(".new-contact .input--email").value,
+            phonePrefix: document.querySelector(".new-contact .input--phone-prefix").value,
+            phoneNum: document.querySelector(".new-contact .input--phone-num").value,
+            street: document.querySelector(".new-contact .input--street").value,
+            city: document.querySelector(".new-contact .input--city").value,
+            zipCode: document.querySelector(".new-contact .input--zip-code").value,
+            birthDate: document.querySelector(".new-contact .input--birth-date").value,
         }
 }

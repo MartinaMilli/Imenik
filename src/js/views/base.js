@@ -2,6 +2,7 @@ export const elements = {
     header: document.querySelector('.header'),
     hamburgerMenu: document.querySelector(".navbar__menu"),
     newContactForm: document.querySelector(".new-contact__form"),
+    newContactTitle: document.querySelector(".new-contact__form h3"),
     detailsForm: document.querySelector('.contact-details__form ul'),
     editForm: document.querySelector('.edit-contact__form ul'),
     
@@ -9,6 +10,7 @@ export const elements = {
     myContactsTableElements: document.querySelectorAll(".my-contacts__list li"),
 
     // new contact input fields
+
     inputFields: document.querySelectorAll(".new-contact .input"),
     firstNameInput: document.querySelector(".new-contact .input--first-name"),
     lastNameInput: document.querySelector(".new-contact .input--last-name"),
@@ -34,11 +36,64 @@ export const elements = {
     detailsPage: document.querySelector('.js__page--contact-details'),
     editPage: document.querySelector('.js__page--edit-contact'),
 
+    
+
     getInputFields: (selector) => {
         return document.querySelectorAll(selector + ' .input');
     }
 }
 
+    export const form = `
+        <li class="form-element flex"> 
+            <div class="input-container flex"> 
+                <label for="first-name">Ime</label>
+                <input type="text" name="first-name" id="first-name" class="input input--first-name" size="30"  maxlength="15" required>
+            </div>
+            <div class="input-container flex">
+                <label for="last-name">Prezime</label>
+                <input type="text" name="last-name" id="last-name" class="input input--last-name" size="30"  maxlength="15" required>
+            </div>
+        </li>
+        <li class="form-element flex">
+            <div class="input-container flex">
+                <label for="e-mail">E-mail</label>
+                <input type="text" name="e-mail" id="e-mail" class="input input--email" size="30"  maxlength="25" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="primjer@gmail.com" required>
+                    </div>
+        </li>
+        <li class="form-element flex">
+            <div class="input-container flex">
+                <label for="phone">Telefon</label>
+                <div class="input-container--phone flex">
+                    <select name="phone" id="phone" class="input input--phone-prefix" required>
+                        <option value="" hidden selected disabled></option>
+                        <option value="091">091</option>
+                        <option value="092">092</option>
+                        <option value="095">095</option>
+                        <option value="097">097</option>
+                        <option value="098">098</option>
+                        <option value="099">099</option>
+                    </select>
+                    <input type="text" name="phone-num" id="phone-num" class="input input--phone-num" size="21"  maxlength="7" required>
+                </div>
+            </div>                  
+        </li>
+        <li class="form-element flex">
+            <div class="input-container flex">
+                <label for="address">Adresa</label>
+                <div class="input-container--address flex">
+                    <input type="text" name="address" id="address" placeholder="Ulica i kućni broj" class="input input--street" size="30"  maxlength="30" required>
+                    <input type="text" name="city" id="city" placeholder="Grad"  class="input input--city" size="30"  maxlength="30" required>
+                    <input type="text" name="zip-code" id="zip-code" placeholder="Poštanski broj" class="input input--zip-code" size="10"  maxlength="30" required> 
+                </div>
+            </div>
+        </li>
+        <li class="form-element flex">
+            <div class="input-container flex">
+                <label for="birth-date">Datum rođenja</label>
+                <input type="date" name="birth-date" id="birth-date" class="input input--birth-date"required>
+            </div>
+        </li>
+    `;
 
 
 
