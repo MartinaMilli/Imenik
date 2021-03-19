@@ -85,9 +85,6 @@ window.addEventListener('click', e => {
 });
 
 
-
-
-
 // Toggle the hamburger menu
 elements.header.addEventListener('click', e => {
     if (e.target.matches('.navbar__menu') || e.target.matches('.navbar__menu--line')) {
@@ -133,7 +130,7 @@ const controlNewContact = () => {
         state.contactList = new MyContacts;
     }
     state.contactList.addContact(state.newContact);
-    console.log(state.contactList)
+    
     // 4. clear input fields
     newContactView.clearInputFields();
 }
@@ -155,8 +152,7 @@ const controlEditContact = () => {
     state.contactList.updateContact(inputData);
 
     // 3. display details page (detailsView)
-    clearUI()
-    document.querySelector('.contact-details__form ul').innerHTML = "";
+    clearUI();
     detailsView.displayDetailsPage(state.contactList.myContactList, inputData.id)
 }
 

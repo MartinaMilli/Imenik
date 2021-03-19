@@ -2,13 +2,16 @@ import {elements, maxDate, form} from './base';
 
 
 const renderEdit = contact => {
+
+    // show the edit page
     if (elements.editPage.classList.contains('hidden')) {
         elements.editPage.classList.remove('hidden');
     }
 
-    document.querySelector('.edit-contact__form h3').insertAdjacentHTML('afterend', form);
+    // display edit form
+    document.querySelector('.edit-contact__form ul').insertAdjacentHTML('afterbegin', form);
     
-
+    // set input values for the current contact
     document.querySelector(".edit-contact .input--first-name").value = contact.firstName;
     document.querySelector(".edit-contact .input--last-name").value = contact.lastName;
     document.querySelector(".edit-contact .input--email").value = contact.email;
@@ -20,6 +23,8 @@ const renderEdit = contact => {
     document.querySelector(".edit-contact .input--birth-date").value = contact.birthDate;
 
     document.querySelector(".edit-contact__form li").setAttribute('data-itemid', contact.id);
+
+    // limit date value
     maxDate();
 }
 
@@ -38,9 +43,9 @@ export const displayEditPage = (contactList, contactID) => {
 }
 
 export const getInput = () => {
-    
-    return {
-        // nisu u elementima jer još ne postoje 
+
+    // get new input data 
+    return { 
         id: document.querySelector(".edit-contact li").getAttribute('data-itemid'),
         firstName: document.querySelector(".edit-contact .input--first-name").value,
         lastName: document.querySelector(".edit-contact .input--last-name").value,

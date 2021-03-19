@@ -1,16 +1,15 @@
 import {elements, form} from './base';
 
-
-
 const displayDetails = contact => {
-    
+    // clear the previously rendered form
+    document.querySelector('.contact-details__form ul').innerHTML = "";
 
+    // show the display page
     if (elements.detailsPage.classList.contains('hidden')) {
         elements.detailsPage.classList.remove('hidden');
     }
 
-    
-    
+    // display the form for the current contact
     document.querySelector('.contact-details__form ul').insertAdjacentHTML('afterbegin', form);
     
     document.querySelector(".contact-details__form .input--first-name").value = contact.firstName;
@@ -29,7 +28,6 @@ const displayDetails = contact => {
 
 export const displayDetailsPage = (contactList, contactID) => {
     
-    
     // 1. get the contact data via the given id 
     let curContact = {};
     contactList.forEach(contact => { 
@@ -38,9 +36,7 @@ export const displayDetailsPage = (contactList, contactID) => {
         }
     });
 
-    console.log(curContact)
-    
-    // 3. display the details page
+    // 2. display the details page
     displayDetails(curContact);
 
     return curContact;

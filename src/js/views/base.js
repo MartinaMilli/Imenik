@@ -1,10 +1,12 @@
 export const elements = {
     header: document.querySelector('.header'),
     hamburgerMenu: document.querySelector(".navbar__menu"),
+
+    //forms
     newContactForm: document.querySelector(".new-contact__form"),
     newContactTitle: document.querySelector(".new-contact__form h3"),
     detailsForm: document.querySelector('.contact-details__form ul'),
-    editForm: document.querySelector('.edit-contact__form ul'),
+    editForm: document.querySelector('.edit-contact__form ul'), 
     
     myContactsTable: document.querySelector(".my-contacts__list"),
     myContactsTableElements: document.querySelectorAll(".my-contacts__list li"),
@@ -12,20 +14,6 @@ export const elements = {
     // new contact input fields
 
     inputFields: document.querySelectorAll(".new-contact .input"),
-    firstNameInput: document.querySelector(".new-contact .input--first-name"),
-    lastNameInput: document.querySelector(".new-contact .input--last-name"),
-    emailInput: document.querySelector(".new-contact .input--email"),
-    phonePrefixInput: document.querySelector(".new-contact .input--phone-prefix"),
-    phoneNumInput: document.querySelector(".new-contact .input--phone-num"),
-    streetInput: document.querySelector(".new-contact .input--street"),
-    cityInput: document.querySelector(".new-contact .input--city"),
-    zipInput: document.querySelector(".new-contact .input--zip-code"),
-    dateInput: document.querySelector(".new-contact .input--birth-date"),   
-
-    // links and btns
-    newContactLinks: document.querySelectorAll('.js__new-contact-link'),
-    saveBtn: document.querySelector('.js__save-contact-btn'),
-    editBtn: document.querySelector('.js__save-changes-btn'),
     pagination: document.querySelector('.my-contacts__pagination'),
     
     //pages
@@ -129,6 +117,7 @@ export const clearUI = () => {
     });
 }
 
+// prevents the user to set the date in the future
 export const maxDate = () => {
     var today = new Date();
     var dd = today.getDate();

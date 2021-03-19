@@ -7,7 +7,6 @@ export const displayMyContactsPage = () => {
     }
 }
 
-
 const renderContact = contact => {
     const markup = `
         <li class="list-element flex" data-itemid=${contact.id}>
@@ -23,17 +22,10 @@ const renderContact = contact => {
 }
 
 
-
-
-
 // type: 'prev' or 'next'
 const createButton = (page, type) => `
-
 <a href="#" class=" results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>Stranica ${type === 'prev' ? page - 1 : page + 1}</a>
 `;
-
-
-
 
 const renderPagination = (page, numResults, resPerPage) => {
     
@@ -61,8 +53,6 @@ const renderPagination = (page, numResults, resPerPage) => {
     
 };
 
-
-
 export const renderTable = (contacts, page = 1, resPerPage = 7) => {
     elements.myContactsTable.innerHTML = '';
 
@@ -72,7 +62,6 @@ export const renderTable = (contacts, page = 1, resPerPage = 7) => {
         } else {
             elements.pagination.style.flexDirection = "row"
         }
-    
     
         // render results of current page
         const start = (page - 1) * resPerPage;

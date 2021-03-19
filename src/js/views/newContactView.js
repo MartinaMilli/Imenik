@@ -1,9 +1,6 @@
 import {elements, maxDate, form} from './base';
 
 
-
-
-
 export const clearInputFields = () => {
     elements.getInputFields('.new-contact').forEach(field => {
         field.value = "";
@@ -15,11 +12,12 @@ export const clearInputFields = () => {
 
 // display the New contact page
 export const displayNewContactPage = () => {
+    document.querySelector('.new-contact__form ul').innerHTML = "";
 
     if (elements.newContactPage.classList.contains('hidden')) {
         elements.newContactPage.classList.remove('hidden');
     }
-    document.querySelector('.new-contact__form h3').insertAdjacentHTML('afterend', form);
+    document.querySelector('.new-contact__form ul').insertAdjacentHTML('afterbegin', form);
     maxDate();
 }
 
