@@ -168,6 +168,7 @@ document.querySelector('.js__save-changes-btn').addEventListener('click', () => 
 // DELETE CONTACT CONTROLLER
 
 const controlDeleteContact = contactID => {
+    // get the contact name for the dialog message
     let contactName = '';
     state.contactList.myContactList.forEach(contact => {
         if (contact.id === contactID) {
@@ -176,24 +177,25 @@ const controlDeleteContact = contactID => {
         }
     })
     myContactsView.showDeleteDialog(contactName);
-    // 1. delete contact from the contact list (MyContacts)
+    
     elements.deleteDialogBtns.addEventListener('click', e => {
         if (e.target.matches('.confirm')) {
+            // 1. if user confirms hide the dialog
             myContactsView.hideDeleteDialog();
+
+            // 2. delete contact from the contact list (MyContacts)
             state.contactList.deleteContact(contactID)
-            console.log(state.contactList.myContactList)
+            
+            // 3. display the new mycontact table and display success message
             elements.pagination.innerHTML = '';
             myContactsView.displayMyContactsPage();
             myContactsView.renderTable(state.contactList.myContactList);
             displaySuccess('delete');
         } else if (e.target.matches('.cancel')) {
+            // 1. if user cancels hode the dialog
             myContactsView.hideDeleteDialog();
         }
     })
-    
-
-    // 2. delete contact from the table (myContactView)
-     
 }
 
 elements.myContactsTable.addEventListener('click', e => { //event listener on table because there is more than one delete icon
