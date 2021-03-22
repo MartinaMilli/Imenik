@@ -3,6 +3,9 @@ import {elements, maxDate, form} from './base';
 
 const renderEdit = contact => {
 
+    // clear the previously rendered form
+    document.querySelector('.edit-contact__form ul').innerHTML = "";
+
     // show the edit page
     if (elements.editPage.classList.contains('hidden')) {
         elements.editPage.classList.remove('hidden');
@@ -10,7 +13,7 @@ const renderEdit = contact => {
 
     // display edit form
     document.querySelector('.edit-contact__form ul').insertAdjacentHTML('afterbegin', form);
-    
+
     // set input values for the current contact
     document.querySelector(".edit-contact .input--first-name").value = contact.firstName;
     document.querySelector(".edit-contact .input--last-name").value = contact.lastName;
@@ -22,7 +25,7 @@ const renderEdit = contact => {
     document.querySelector(".edit-contact .input--zip-code").value = contact.zip;
     document.querySelector(".edit-contact .input--birth-date").value = contact.birthDate;
 
-    document.querySelector(".edit-contact__form li").setAttribute('data-itemid', contact.id);
+    document.querySelector(".edit-contact__form li").setAttribute('data-itemid', contact.id); 
 
     // limit date value
     maxDate();
