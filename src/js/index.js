@@ -16,15 +16,15 @@ const state = {};
 
 // SWITCHING BETWEEN PAGES 
 // Switching to the New contact page 
-window.addEventListener('click', e => {
+window.addEventListener('click', e => { //event listener on window because there is more than one new contact button 
     if (e.target.matches('.js__new-contact-link')) {
         clearUI();
         newContactView.displayNewContactPage();
-    }});
+    }}); 
 
 
 // Switching to the My contacts page
-window.addEventListener('click', e => {
+window.addEventListener('click', e => { //event listener on window because there is more than one my contacts button 
     if (e.target.matches('.js__my-contacts-link')) {
         clearUI();
         elements.pagination.innerHTML = '';
@@ -34,7 +34,7 @@ window.addEventListener('click', e => {
 
 
 // Switching to the homepage
-window.addEventListener('click', e => {
+window.addEventListener('click', e => { //event listener on window because there is more than one homepage button 
     if(e.target.matches('.js__homepage-link')) {
         clearUI();
         homepageView.displayHomepage();
@@ -47,7 +47,7 @@ const getID = btn => {
 
 
 // Switching to the details page 
-elements.myContactsTable.addEventListener('click', e => {
+elements.myContactsTable.addEventListener('click', e => { //event listener on table because there is more than one details link
     const detailsBtn = e.target.closest('.details-link');
     if (detailsBtn) {
         const contactID = getID(detailsBtn)
@@ -60,7 +60,7 @@ elements.myContactsTable.addEventListener('click', e => {
 });
 
 // Switching to the edit contact page from my contacts table
-elements.myContactsTable.addEventListener('click', e => {
+elements.myContactsTable.addEventListener('click', e => { //event listener on table because there is more than one edit icon
     const editIcon = e.target.closest('.edit-icon');
     if (editIcon) {
         const contactID = getID(editIcon);
@@ -71,17 +71,15 @@ elements.myContactsTable.addEventListener('click', e => {
 });
 
 // Switching to the edit contact page from the details page
-window.addEventListener('click', e => {
-    if (e.target.closest('.edit-icon-details')) {
-        // 1. get the id of the currently displayed contact
-        const contactID = document.querySelector(".contact-details__form li").getAttribute('data-itemid');
-        console.log(contactID);
-        
-        // 2. display the edit page for that contact
-        clearUI()
-        editView.displayEditPage(state.contactList.myContactList, contactID)
-    }
+document.querySelector('.edit-icon-details').addEventListener('click', () => {
+    // 1. get the id of the currently displayed contact
+    const contactID = document.querySelector(".contact-details__form li").getAttribute('data-itemid');
+    console.log(contactID);
     
+    // 2. display the edit page for that contact
+    clearUI()
+    editView.displayEditPage(state.contactList.myContactList, contactID)
+
 });
 
 
@@ -156,12 +154,9 @@ const controlEditContact = () => {
     detailsView.displayDetailsPage(state.contactList.myContactList, inputData.id)
 }
 
-
-window.addEventListener('click', e => {
-    if (e.target.matches('.js__save-changes-btn')) {
-        controlEditContact()
-    }
-})
+document.querySelector('.js__save-changes-btn').addEventListener('click', () => {
+    controlEditContact()
+});
 
 
 // DELETE CONTACT CONTROLLER
@@ -177,20 +172,14 @@ const controlDeleteContact = contactID => {
     myContactsView.renderTable(state.contactList.myContactList);
 }
 
-elements.myContactsTable.addEventListener('click', e => {
-    const deleteIcon = e.target.closest('.delete-icon');
+elements.myContactsTable.addEventListener('click', e => { //event listener on table because there is more than one delete icon
+    const deleteIcon = e.target.closest('.delete-icon'); 
     if (deleteIcon) {
         const contactID = getID(deleteIcon);
         console.log(contactID);
         controlDeleteContact(contactID);
     }
 });
-
-
-
-
-
-
 
 
 // restore contacts after the page is reloaded 
