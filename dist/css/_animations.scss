@@ -39,3 +39,28 @@
 .fade-out {
     animation: fade-out 300ms ease-in-out forwards;
 }
+
+@keyframes fadeinout {
+    0% { 
+        display: none;
+        opacity: 0; }
+    1% {
+        display: inline; 
+        opacity: 0; }
+    10% {
+        display: inline;
+        opacity: 1;}
+    70% {
+        display: inline;
+        opacity: 1;}
+    99% {
+        display: inline;
+        opacity: 0;}
+    100% { 
+        display: none;
+        opacity: 0; }
+  }
+
+  .fade-in-out {
+    animation: fadeinout 1.5s linear forwards;
+  }

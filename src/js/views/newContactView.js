@@ -2,16 +2,24 @@ import {elements, maxDate, form} from './base';
 
 
 export const clearInputFields = () => {
+    // 1. scroll to top of the window
+    window.scrollTo(0, 0);
+    
+    // 2. set focus on the first input field
+    document.querySelector('.new-contact .input').focus();
+    
+    // 3. remove values from input fields
     elements.getInputFields('.new-contact').forEach(field => {
         field.value = "";
         if (field.classList.contains('.input--phone-prefix')) {
             field.selectedIndex = 1;
-    }
-})
+        }
+    })     
 };
 
 // display the New contact page
 export const displayNewContactPage = () => {
+    
     document.querySelector('.new-contact__form ul').innerHTML = "";
 
     if (elements.newContactPage.classList.contains('hidden')) {

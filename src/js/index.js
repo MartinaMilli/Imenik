@@ -1,4 +1,4 @@
-import { elements, toggleHamburger, clearUI } from "./views/base";
+import { elements, toggleHamburger, clearUI, displaySuccess } from "./views/base";
 import * as newContactView from "./views/newContactView";
 import * as myContactsView from "./views/myContactsView";
 import * as homepageView from "./views/homepageView";
@@ -130,7 +130,9 @@ const controlNewContact = () => {
     state.contactList.addContact(state.newContact);
     
     // 4. clear input fields
+    displaySuccess('new');
     newContactView.clearInputFields();
+
 }
 
 elements.newContactForm.addEventListener('submit', e => {
@@ -149,9 +151,13 @@ const controlEditContact = () => {
     console.log(inputData);
     state.contactList.updateContact(inputData);
 
-    // 3. display details page (detailsView)
+    // 3. clear UI 
     clearUI();
-    detailsView.displayDetailsPage(state.contactList.myContactList, inputData.id)
+
+     // 4. display details page again (detailsView) and the success message
+    detailsView.displayDetailsPage(state.contactList.myContactList, inputData.id);
+    displaySuccess('display'); 
+    
 }
 
 document.querySelector('.js__save-changes-btn').addEventListener('click', () => {

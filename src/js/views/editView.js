@@ -45,6 +45,7 @@ export const displayEditPage = (contactList, contactID) => {
 
 }
 
+
 export const getInput = () => {
 
     // get new input data 

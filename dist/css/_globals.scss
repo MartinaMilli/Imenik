@@ -191,9 +191,11 @@ h3 {
     display: none;
 }
 
-// WARNING MESSAGE
-.warning-message {
-    color: red;
+
+// success message
+.success {
+    font-size: 1rem;
+    font-weight: normal;
     margin-bottom: 1rem;
-    animation: fade-in 300ms ease-in-out forwards;
+    color: $color-accent;
 }

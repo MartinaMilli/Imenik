@@ -117,6 +117,15 @@ export const clearUI = () => {
     });
 }
 
+// displays the success message when saving or editing a contact
+export const displaySuccess = page => {
+    const successMessage = document.querySelector(`.success-${page}`);
+    successMessage.classList.remove('hidden');   
+    successMessage.addEventListener('animationend', () => {
+        successMessage.classList.add('hidden');
+    })
+}
+
 // prevents the user to set the date in the future
 export const maxDate = () => {
     var today = new Date();
