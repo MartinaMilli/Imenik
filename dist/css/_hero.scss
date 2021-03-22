@@ -8,9 +8,10 @@
     background-repeat: no-repeat;
     background-position: bottom center;
     @include breakpoint-up(medium) {
-        height: 40rem;
+        background-size: 50%;
     }
     @include breakpoint-up(large) {
+        height: 36rem;
         background-position: right center;
         background-size: 60%;
     }

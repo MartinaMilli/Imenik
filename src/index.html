@@ -68,13 +68,15 @@
         </form>
     </section>
 
+    
     <section class="my-contacts container--pall hidden js__page js__page--my-contacts">
-        <h3>Moji kontakti</h3>
+        
+        <h3>Moji kontakti <span class="success success-delete hidden fade-in-out">Kontakt obrisan!</span> </h3>
         <div class="my-contacts__pagination flex">
             <!-- <a href="#">< Stranica 1</a>
             <a href="#"> Stranica 3></a> -->
         </div>     
-        <ul class="my-contacts__list">
+        <ul class="my-contacts__list ">
             
         </ul>
         <!-- <div class="no-contacts-message">Trenutno nemate spremljenih kontakata</div> -->
@@ -82,6 +84,15 @@
             <a href="#" class="btn btn--outline js__homepage-link"> Naslovna</a>
         </div>
     </section>
+    <div class="delete-overlay has-fade-dialog">
+        <div class="dialog flex container--pall">
+            <div class="dialog__message">Jeste li sigurni da želite obrisati kontakt <span class="contact-name">Martina Milli</span>?</div>
+            <div class="dialog__btns flex">
+                <a href="#" class="btn btn--cta confirm">Potvrdi</a>
+                <a href="#" class="btn btn--outline cancel">Odustani</a>
+            </div>
+        </div>
+    </div>
 
     <section class="contact-details container--pall hidden js__page js__page--contact-details"> 
         <form class="contact-details__form flex">

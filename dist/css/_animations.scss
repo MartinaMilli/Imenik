@@ -1,7 +1,9 @@
 .has-fade {
     visibility: hidden;
 }
-
+.has-fade-dialog {
+    visibility: hidden;
+}
 @keyframes fade-in {
     from {
         visibility: none;

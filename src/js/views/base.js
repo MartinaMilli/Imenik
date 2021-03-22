@@ -1,6 +1,9 @@
 export const elements = {
     header: document.querySelector('.header'),
     hamburgerMenu: document.querySelector(".navbar__menu"),
+    deleteOverlay: document.querySelector(".delete-overlay"),
+    deleteDialogBtns: document.querySelector(".dialog__btns"),
+    deleteDialogMsg: document.querySelector(".contact-name"),
 
     //forms
     newContactForm: document.querySelector(".new-contact__form"),
@@ -103,6 +106,8 @@ export const toggleHamburger = () => {
         });       
     }
 }
+
+
 
 // clear UI by adding class hidden to those elements that do not have it
 // class hidden applies the display: none style on the element 

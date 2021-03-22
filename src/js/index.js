@@ -168,21 +168,39 @@ document.querySelector('.js__save-changes-btn').addEventListener('click', () => 
 // DELETE CONTACT CONTROLLER
 
 const controlDeleteContact = contactID => {
+    let contactName = '';
+    state.contactList.myContactList.forEach(contact => {
+        if (contact.id === contactID) {
+            contactName = `${contact.firstName} ${contact.lastName}`;
+            return contactName;
+        }
+    })
+    myContactsView.showDeleteDialog(contactName);
     // 1. delete contact from the contact list (MyContacts)
-    state.contactList.deleteContact(contactID)
-    console.log(state.contactList.myContactList)
+    elements.deleteDialogBtns.addEventListener('click', e => {
+        if (e.target.matches('.confirm')) {
+            myContactsView.hideDeleteDialog();
+            state.contactList.deleteContact(contactID)
+            console.log(state.contactList.myContactList)
+            elements.pagination.innerHTML = '';
+            myContactsView.displayMyContactsPage();
+            myContactsView.renderTable(state.contactList.myContactList);
+            displaySuccess('delete');
+        } else if (e.target.matches('.cancel')) {
+            myContactsView.hideDeleteDialog();
+        }
+    })
+    
 
     // 2. delete contact from the table (myContactView)
-    elements.pagination.innerHTML = '';
-    myContactsView.displayMyContactsPage();
-    myContactsView.renderTable(state.contactList.myContactList);
+     
 }
 
 elements.myContactsTable.addEventListener('click', e => { //event listener on table because there is more than one delete icon
     const deleteIcon = e.target.closest('.delete-icon'); 
     if (deleteIcon) {
         const contactID = getID(deleteIcon);
-        console.log(contactID);
+    
         controlDeleteContact(contactID);
     }
 });

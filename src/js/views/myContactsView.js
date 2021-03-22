@@ -77,3 +77,14 @@ export const renderTable = (contacts, page = 1, resPerPage = 7) => {
     
     
 }
+
+export const showDeleteDialog = contactName => {
+    elements.deleteDialogMsg.innerText = contactName;
+    
+    elements.deleteOverlay.classList.remove('fade-out');
+    elements.deleteOverlay.classList.add('fade-in');
+}
+export const hideDeleteDialog = () => {
+    elements.deleteOverlay.classList.remove('fade-in');
+    elements.deleteOverlay.classList.add('fade-out');
+}

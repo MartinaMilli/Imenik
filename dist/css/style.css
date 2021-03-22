@@ -52,6 +52,10 @@ table {
   visibility: hidden;
 }
 
+.has-fade-dialog {
+  visibility: hidden;
+}
+
 @-webkit-keyframes fade-in {
   from {
     visibility: none;
@@ -414,7 +418,12 @@ h3 {
   font-size: 1rem;
   font-weight: normal;
   margin-bottom: 1rem;
+  margin-left: 1rem;
   color: #004e40;
+}
+
+.success-delete {
+  color: red;
 }
 
 .navbar {
@@ -527,12 +536,13 @@ h3 {
 
 @media (min-width: 48em) {
   .hero {
-    height: 40rem;
+    background-size: 50%;
   }
 }
 
 @media (min-width: 64em) {
   .hero {
+    height: 36rem;
     background-position: right center;
     background-size: 60%;
   }
@@ -582,10 +592,16 @@ h3 {
 @media (min-width: 48em) {
   .new-contact {
     background-image: url("../Images/hero_image.svg");
-    background-position-y: 80%;
+    background-position-y: 50%;
     background-position-x: 130%;
     background-size: 60%;
     background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 64em) {
+  .new-contact {
+    background-position-y: 80%;
   }
 }
 
@@ -873,7 +889,8 @@ h3 {
 }
 
 .my-contacts {
-  height: 650px;
+  position: relative;
+  height: 37.5rem;
 }
 
 @media (min-width: 48em) {
@@ -888,6 +905,7 @@ h3 {
 @media (min-width: 90em) {
   .my-contacts {
     background-size: 65%;
+    height: 38.75rem;
   }
 }
 
@@ -1033,6 +1051,72 @@ h3 {
   color: #272727;
   font: inherit;
   margin-bottom: 3rem;
+}
+
+.delete-overlay {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0d6654), to(transparent));
+  background-image: linear-gradient(#0d6654, transparent);
+}
+
+.delete-overlay .dialog {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: absolute;
+  margin-top: 6rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: #fefeff;
+  border-radius: 4px;
+  width: calc(100% - 3.75rem);
+}
+
+@media (min-width: 48em) {
+  .delete-overlay .dialog {
+    width: calc(100% - 15rem);
+  }
+}
+
+@media (min-width: 64em) {
+  .delete-overlay .dialog {
+    margin-top: 12rem;
+    width: calc(100% - 37.5rem);
+  }
+}
+
+@media (min-width: 90em) {
+  .delete-overlay .dialog {
+    width: calc(100% - 60rem);
+  }
+}
+
+.delete-overlay .dialog__message {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.delete-overlay .dialog__message .contact-name {
+  font-weight: 600;
+}
+
+.delete-overlay .dialog__btns :first-child {
+  margin-right: 2rem;
+}
+
+.delete-overlay .dialog__btns :nth-child(2)::before {
+  content: '';
 }
 
 @media (min-width: 48em) {

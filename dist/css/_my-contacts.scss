@@ -1,5 +1,6 @@
 .my-contacts {
-    height: 650px;
+    position: relative;
+    height: 37.5rem;
     @include breakpoint-up(medium) {
         background-image: url("../Images/my-contacts-bcg.svg");
         background-position: bottom right;
@@ -8,6 +9,7 @@
     }
     @include breakpoint-up(xlarge) {
         background-size: 65% ;
+        height: 38.75rem;
     }
     
     ul * {
@@ -92,6 +94,8 @@
             }
         }
     }
+    
+   
     .table-btns {
         flex-direction: column;
         @include breakpoint-up(medium) {
@@ -102,5 +106,54 @@
         color: $color-font;
         font: inherit;
         margin-bottom: 3rem;
+    }
+}
+
+.delete-overlay {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-image: linear-gradient($color-secondary, transparent);
+    .dialog {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        margin-top: 6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $color-bcg;
+        border-radius: 4px;
+        width: calc(100% - 3.75rem);
+        @include breakpoint-up(medium) {
+            width: calc(100% - 15rem);
+        }
+        @include breakpoint-up(large) {
+            margin-top: 12rem;
+            width: calc(100% - 37.5rem);
+        }
+        @include breakpoint-up(xlarge) {
+            width: calc(100% - 60rem);
+        }
+        
+        &__message {
+            margin-bottom: 3rem;
+            text-align: center;
+            .contact-name {
+                font-weight: 600;
+            }
+        }
+        &__btns {
+            :first-child {
+                margin-right: 2rem;
+            }
+            :nth-child(2) {
+                &::before {
+                    content: '';
+                }
+            }
+        }
     }
 }
