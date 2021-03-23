@@ -201,6 +201,7 @@ body {
   background-color: #fefeff;
   color: #272727;
   font-size: 1rem;
+  overflow: hidden;
 }
 
 a, a:active, a:visited {
@@ -905,7 +906,7 @@ h3 {
 @media (min-width: 90em) {
   .my-contacts {
     background-size: 65%;
-    height: 38.75rem;
+    height: 39.75rem;
   }
 }
 
