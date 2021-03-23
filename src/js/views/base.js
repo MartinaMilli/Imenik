@@ -1,6 +1,9 @@
 export const elements = {
+    // header elements
     header: document.querySelector('.header'),
     hamburgerMenu: document.querySelector(".navbar__menu"),
+
+    //delete dialog elements
     deleteOverlay: document.querySelector(".delete-overlay"),
     deleteDialogBtns: document.querySelector(".dialog__btns"),
     deleteDialogMsg: document.querySelector(".contact-name"),
@@ -11,11 +14,11 @@ export const elements = {
     detailsForm: document.querySelector('.contact-details__form ul'),
     editForm: document.querySelector('.edit-contact__form ul'), 
     
+    // table elements
     myContactsTable: document.querySelector(".my-contacts__list"),
     myContactsTableElements: document.querySelectorAll(".my-contacts__list li"),
 
-    // new contact input fields
-
+    // new contact input fields and paginaton
     inputFields: document.querySelectorAll(".new-contact .input"),
     pagination: document.querySelector('.my-contacts__pagination'),
     
@@ -28,13 +31,14 @@ export const elements = {
     editPage: document.querySelector('.js__page--edit-contact'),
 
     
-
+    // get input fields for a specific page
     getInputFields: (selector) => {
         return document.querySelectorAll(selector + ' .input');
     }
 }
 
-    export const form = `
+// basic form markup
+export const form = `
         <li class="form-element flex"> 
             <div class="input-container flex"> 
                 <label for="first-name">Ime</label>
@@ -84,11 +88,11 @@ export const elements = {
                 <input type="date" name="birth-date" id="birth-date" class="input input--birth-date"required>
             </div>
         </li>
-    `;
+`;
 
 
 
-
+// toggle the hamburger menu 
 export const toggleHamburger = () => {
     
     if (elements.header.classList.contains("open")) {
@@ -122,7 +126,7 @@ export const clearUI = () => {
     });
 }
 
-// displays the success message when saving or editing a contact
+// displays the success message when saving, editing or deleting a contact
 export const displaySuccess = page => {
     const successMessage = document.querySelector(`.success-${page}`);
     successMessage.classList.remove('hidden');   
@@ -148,3 +152,12 @@ export const maxDate = () => {
     document.querySelector("[type='date']").setAttribute("max", today);
 }
 
+// asign contact data to input fields 
+export const asignValues = (inputFields, contact) => {
+    const values = [contact.firstName, contact.lastName, contact.email, contact.phonePrefix, contact.phoneNum, contact.street, contact.city, contact.zip, contact.birthDate];
+    let i = 0;
+    inputFields.forEach(input => {
+        input.value = values[i];
+        i++;
+    })
+}

@@ -54,8 +54,10 @@ const renderPagination = (page, numResults, resPerPage) => {
 };
 
 export const renderTable = (contacts, page = 1, resPerPage = 7) => {
+    // delete previously rendered table
     elements.myContactsTable.innerHTML = '';
 
+    // style the pagination section depending on the current page
     if (contacts.length !== 0) {
         if (page === 1) {
             elements.pagination.style.flexDirection = "row-reverse"
@@ -72,15 +74,13 @@ export const renderTable = (contacts, page = 1, resPerPage = 7) => {
         // render pagination btns
         renderPagination(page, contacts.length, resPerPage);
     } else {
+        // display message if there is no saved contacts
         elements.myContactsTable.innerHTML = '<div class="no-contacts-message">Trenutno nemate spremljenih kontakata</div>';
     }
-    
-    
 }
 
 export const showDeleteDialog = contactName => {
     elements.deleteDialogMsg.innerText = contactName;
-    
     elements.deleteOverlay.classList.remove('fade-out');
     elements.deleteOverlay.classList.add('fade-in');
 }

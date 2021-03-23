@@ -1,4 +1,4 @@
-import {elements, maxDate, form} from './base';
+import {elements, maxDate, form, asignValues} from './base';
 
 
 const renderEdit = contact => {
@@ -11,21 +11,14 @@ const renderEdit = contact => {
         elements.editPage.classList.remove('hidden');
     }
 
-    // display edit form
+    // insert the general form markup
     document.querySelector('.edit-contact__form ul').insertAdjacentHTML('afterbegin', form);
 
-    // set input values for the current contact
-    document.querySelector(".edit-contact .input--first-name").value = contact.firstName;
-    document.querySelector(".edit-contact .input--last-name").value = contact.lastName;
-    document.querySelector(".edit-contact .input--email").value = contact.email;
-    document.querySelector(".edit-contact .input--phone-prefix").value = contact.phonePrefix;
-    document.querySelector(".edit-contact .input--phone-num").value = contact.phoneNum;
-    document.querySelector(".edit-contact .input--street").value = contact.street;
-    document.querySelector(".edit-contact .input--city").value = contact.city;
-    document.querySelector(".edit-contact .input--zip-code").value = contact.zip;
-    document.querySelector(".edit-contact .input--birth-date").value = contact.birthDate;
+    const inputs = document.querySelectorAll('.edit-contact__form .input');
 
-    document.querySelector(".edit-contact__form li").setAttribute('data-itemid', contact.id); 
+    // asign contact data to input fields
+    asignValues(inputs, contact);
+    document.querySelector(".edit-contact__form li").setAttribute('data-itemid', contact.id);
 
     // limit date value
     maxDate();
